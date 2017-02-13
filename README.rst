@@ -100,26 +100,43 @@ Having problems or got a question?
 Changelog
 ---------
 
-1.2
----
+1.3 (Unreleased)
+----------------
 
-* Nothing yet
+* Fix a bug where the reliability fix included in 1.2 would not work if the two requests were almost simultanous.
+  [bharling, mwilkes]
 
-1.1
----
+1.2 (2015-10-22)
+----------------
+
+* Make order confirmation more reliable, by fixing a failure mode if the user sends multiple finalisation requests
+  [bharling]
+
+* On payment failure redirect to basket:summary rather than basket:preview, to support multiple gateways.
+  [lpakula]
+
+* Load OrderPlacementMixin dynamically to allow overrides
+  [bharling]
+
+1.1 (2015-09-28)
+----------------
 
 * Fix a bug when phonenumber wasn't set.
+  [mwilkes]
 * Remove some old PayPal references that were missed.
+  [mwilkes]
 
-1.0
----
+1.0 (2015-09-28)
+----------------
 
 * Initial release. Working integration of Worldpay and Oscar.
+  [mwilkes]
 
 0.1
 ~~~
 
 * Skeleton of Worldpay integration, supporting making requests and receiving callbacks.
+  [mwilkes]
 
 0.0
 ~~~
