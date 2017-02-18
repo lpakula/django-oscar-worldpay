@@ -91,7 +91,8 @@ def check_ip(ip):
     except socket.gaierror:
         # No match
         return False
-    
+
+    assert False, hostname
     if hostname.endswith(".worldpay.com") or hostname.endswith(".rbsworldpay.com"):
         try:
             # The 80 here is because getaddrinfo is expecting to be used to open
