@@ -67,7 +67,8 @@ def build_payment_url(total, order_number, user, basket, shipping_method, shippi
 
 def confirm(request):
     if not check_ip(request):
-        raise PaymentError("Error tracing origin point of callback")
+        header = settings.WORLDPAY_REMOTE_ADDRESS_HEADER
+        raise PaymentError("Error tracing origin point of callback. IP: {}".format(request.META[header].split(',')[0]))
     try:
         return gateway.confirm(request, settings.SECRET_KEY.encode("utf-8"))
     except ValueError as e:
@@ -76,8 +77,8 @@ def confirm(request):
 def check_ip(request):
     """Check if an IP address has a reverse DNS that matches worldpay.com, and if
     it does, check that that hostname has the IP as one of its resolvables."""
-    if settings.WORLDPAY_TEST_MODE:
-        return True
+    # if settings.WORLDPAY_TEST_MODE:
+    #     return True
 
     try:
         header = settings.WORLDPAY_REMOTE_ADDRESS_HEADER
