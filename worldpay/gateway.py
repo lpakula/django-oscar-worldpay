@@ -89,10 +89,9 @@ def check_ip(ip):
         # No reverse DNS service available
         return False
     except socket.gaierror:
-        # No match
+        # No81bf4501c457 match
         return False
 
-    assert False, hostname
     if hostname.endswith(".worldpay.com") or hostname.endswith(".rbsworldpay.com"):
         try:
             # The 80 here is because getaddrinfo is expecting to be used to open
