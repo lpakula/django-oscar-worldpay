@@ -6,7 +6,7 @@ import logging
 from django.contrib.auth.models import User, AnonymousUser
 from django.conf import settings
 from django.contrib import messages
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.core.signing import BadSignature, TimestampSigner
 from django.http import HttpResponseRedirect, HttpResponseBadRequest
 from django.template.response import TemplateResponse
