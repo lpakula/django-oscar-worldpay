@@ -1,10 +1,10 @@
-from django.conf.urls import *
+from django.conf.urls import url
 from django.views.decorators.csrf import csrf_exempt
 
 from worldpay import views
 
 
-urlpatterns = patterns('',
+urlpatterns = ['',
     # Override for basket preview that adds the worldpay form
     url(r'preview/$',
         views.PaymentDetailsView.as_view(preview=True),
@@ -19,4 +19,4 @@ urlpatterns = patterns('',
     url(r'fail$', views.FailView.as_view(),
         name='worldpay-fail'),
     
-)
+]
